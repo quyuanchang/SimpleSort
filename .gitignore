@@ -1,0 +1,67 @@
+package com.ycqu.test;
+import java.util.Arrays;
+public class Tests {
+    public static void main(String args[])
+    {
+        int[] arrays = {3,5,2,8,6,9,7,4,0};
+        int[] mp = {31,45,42,48,60,19,87,47,0};
+        int[] xz = {311,425,432,438,660,179,887,497,10};
+        int[] cr = {1,25,32,38,66,79,87,97,13};
+        
+        Arrays.sort(arrays);
+        maoPao(mp);
+        selectSort(xz);
+        insertSort(cr);
+        
+        System.out.println("默认排序："+Arrays.toString(arrays));
+        System.out.println("冒泡排序："+Arrays.toString(mp));
+        System.out.println("选择排序："+Arrays.toString(xz));
+        System.out.println("插入排序："+Arrays.toString(cr));
+    }
+    
+    //冒泡排序算法
+    public static int[]   maoPao(int[] arr) {
+           for (int i = 0; i < arr.length; i++) {
+               for (int j = i + 1; j < arr.length; j++) {
+                  if (arr[i] > arr[j]) {
+                      int temp = arr[i];
+                      arr[i] = arr[j];
+                      arr[j] = temp;
+                  }
+               }
+           }
+           return arr;
+        }
+    
+    //选择排序算法
+    public static int[] selectSort(int[] args){
+        for (int i=0;i<args.length-1 ;i++ ){
+                int min=i;
+                for (int j=i+1;j<args.length ;j++ ){
+                    if (args[min]>args[j]){
+                         min=j;
+                    }
+                }
+                if (min!=i){
+                int temp=args[i];
+                args[i]=args[min];
+                args[min]=temp;        
+                }
+        }
+        return args;
+    }
+    
+    //插入排序算法
+    public static int[] insertSort(int[] args){
+        for(int i=1;i<args.length;i++){
+                for(int j=i;j>0;j--){
+                        if (args[j]<args[j-1]){
+                                int temp=args[j-1];
+                                args[j-1]=args[j];
+                                args[j]=temp;        
+                        }else break;
+                }
+        }
+        return args;
+    }
+}
